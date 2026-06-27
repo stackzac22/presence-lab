@@ -36,6 +36,16 @@ stream rich JSON over USB **and** publish per-target entities to Home Assistant.
 
 - USB/JSON out stays on the CH343 / `usb_out` UART (GPIO11/12 @115200) → host `/dev/ttyACM0`.
 
+## Where to buy
+- **Amazon** (fast, ~$15–25): <https://www.amazon.com/s?k=HLK-LD2450>
+- **AliExpress — Hi-Link Official Store** (cheapest, ~$6–12, slow ship): <https://www.aliexpress.com/wholesale?SearchText=HLK-LD2450>
+
+**What to order:**
+- The module labeled **HLK-LD2450** (24 GHz, multi-target) — *not* the LD2410 (single-presence) or LD2420 (build 04).
+- Ships as a bare board with a **4-pin connector**; make sure a **JST pigtail cable** is included (or grab one) for TX / RX / 3V3 / GND leads.
+- On AliExpress, buy from the **Hi-Link Official Store** for the genuine part.
+- A version with a USB-C dev adapter exists — handy but unnecessary here, since it wires to the C5.
+
 ## Firmware — ESPHome `ld2450` component
 ESPHome has a native `ld2450:` platform. Reuse build 04's structure, swap the radar block:
 

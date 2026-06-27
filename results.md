@@ -7,6 +7,7 @@
 | 03 Vape PIR     |  |  |  |  |  |  |  |
 | 03 Vape LD2410  |  |  |  |  |  |  |  |
 | 04 C5 mmWave dongle | **~831 / ~831 cm** (8.3 m move & still) | immediate (`present` by 1 s) | TBD | (USB/bank) | **0** (3×10min) | USB JSON + MQTT | ✅ flashed & verified 2026-06-26; USB `/dev/ttyACM0` + HA node both live |
+| 05 LD2450 multi-target | TBD (~6 m, moving) | TBD | TBD | (USB/bank) | TBD | USB JSON + MQTT | 📋 spec'd — tracks up to 3 targets X/Y; ⚠️ radar UART @ **256000** baud |
 
 ## Observations
 - **04 C5 dongle (2026-06-26):** D1 JSON firmware verified — clean `{"present":...,"distance_cm":...}` on `/dev/ttyACM0` and HA discovery published over MQTT. Fixed a `secrets.yaml` `$`-escaping bug (SSID needs `$$`) that had blocked WiFi.

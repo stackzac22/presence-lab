@@ -9,6 +9,7 @@ winners into the bigger plan (whole-home CSI mesh + yard perimeter + camera fusi
 | [02](02-lowvolt-outdoor-csi-node.md) | **Low-volt outdoor node** | WiFi CSI (or LD2410) | 12 V wire run → buck | always-on fixed node, no battery anxiety |
 | [03](03-vape-battery-node.md) | **Vape-battery node** | PIR or LD2410 | 3.7 V vape cell | how long a salvaged cell lasts; sleepy-sensor duty |
 | [04](04-c5-mmwave-dongle.md) | **C5 + mmWave USB dongle** | LD2420 on C5 | host USB / power bank | plug into Pi/phone, stream presence JSON |
+| [05](05-ld2450-multitarget.md) | **LD2450 multi-target** | LD2450 on C5 | host USB / power bank | track up to 3 people (X/Y), people-counting |
 
 ## Bake-off — record these for each build
 Drop results in `results.md` (make it as you go):

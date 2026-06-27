@@ -64,7 +64,7 @@ cd /home/tec/HA && .esphome-venv/bin/esphome run c5-mmwave-dongle.yaml --device 
 - USB JSON streaming on `/dev/ttyACM0` @115200 — `{"present":true,"distance_cm":105}` (set baud first: `stty -F /dev/ttyACM0 115200 raw -echo`). Radar detected presence at ~105 cm.
 - WiFi + MQTT up: board published HA discovery → `homeassistant/binary_sensor/c5-mmwave-dongle/presence/config`. Broker `<your-broker-ip>`. Shows in HA as **"C5 mmWave Dongle"** (Presence/occupancy, Distance, WiFi RSSI). So it's a USB dongle **and** a wireless HA node at once, as planned.
 
-**Gotcha fixed:** `secrets.yaml` runs values through ESPHome substitution, so a literal `$` must be `$$`. An SSID containing a literal `$` (e.g. `My$Net`) silently compiled to just `My` (no WiFi/MQTT). Fix: double the `$` → `My$$Net`. This applies to every board sharing that secrets file.
+**Gotcha fixed:** `secrets.yaml` runs values through ESPHome substitution, so a literal `$` must be `$$`. An SSID containing a literal `$` (e.g. `My$Net`) makes ESPHome log a cosmetic warning (`looks like an expression … is undefined`) because `$` reads like a substitution. But ESPHome keeps the value **literal and connects fine** — leave the `$` as-is. Do **not** "escape" it as `$$`; that sends a literal double-`$` and actually breaks WiFi.
 
 **Recovery note:** an interrupted flash (wrong button) does **not** brick the C5 — it falls back to ROM download mode. Verify with `esptool --port /dev/ttyACM0 chip-id`, then just re-run the flash command above.
 
